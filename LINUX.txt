@@ -1,0 +1,26 @@
+-- creating a new file with few duplicate words
+cat > "input.txt"
+Hello
+World
+Hello
+Linux
+Linux
+
+
+-- viewing the file
+cat "input.txt"
+Hello
+World
+Hello
+Linux
+Linux
+
+-- to count the number of duplicate lines in a text file is to use the sort and uniq commands together. The sort command sorts the lines in a text file, while the uniq command filters out duplicate adjacent lines. To count the number of duplicate lines using these commands, we can first sort the lines in our “input.txt” file using the sort command:
+-- We can use the uniq command with the “-c” flag to count the number of duplicate lines 
+-- The grep command looks for lines that match a certain pattern
+
+sort input.txt | uniq -c | grep -v '^*1' > demo.txt 
+2 Hello
+2 Linux
+1 world
+
