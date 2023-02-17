@@ -1,0 +1,39 @@
+
+cat >input.txt
+1,sneha,2001
+2,babai,2002
+3,mamta,2003
+4,laxmi,2004
+5,mouni,2005
+1,sneha,2001
+4,laxmi,2005
+2,babai,2002
+6,usha,2006
+3,mamta,2003
+-- creating a file "input.txt"
+
+
+cut -f 1,3,2 input.txt | sort -u > Demo2.txt
+-- cut -f 1,3,2 input.txt -> this cuts out the first, third and second columns of the input file and putputs them in that order.
+-- sort -u -> this sorts the output of the 'cut' command and remives any duplicate lines.
+-- > Demo2.txt -> the output is getting stored in a new file named 'Demo2.txt'
+
+ 
+echo "Total no of lines before: $(wc -l < input.txt)">>Demo2.txt
+-- this prints the string "Total no of lines before:" followed by the number of lines in the input file to standard output.
+
+
+echo "Total no of lines after: $(wc -l < input.txt)">>Demo2.txt
+-- this prints the string "Total no of lines after:" followed by the number of lines in the demo2 file to standard output
+
+
+cat Demo2.txt
+1,sneha,2001
+2,babai,2002
+3,mamta,2003
+4,laxmi,2004
+4,laxmi,2005
+5,mouni,2005
+6,usha,2006
+Total no of lines before: 10
+Total no of lines after: 8
